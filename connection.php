@@ -17,11 +17,12 @@ try {
   $date=date("Y/m/d");
   $id=0;
   // Prepare the SQL query
-  $query = $connection->prepare("INSERT INTO todos (id,title,description,date) VALUES('0','$title', '$description','$date')");
+  $query = $connection->prepare("INSERT INTO todos (id,title,description,date) VALUES('?','?', '?','$date')");
 
   // Bind the values to the prepared statement
   $query->bindParam(1, $title);
   $query->bindParam(2, $description);
+  $query->bindParam(3, $date);
 
   // Execute the query
   $query->execute();
