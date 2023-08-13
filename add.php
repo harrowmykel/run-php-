@@ -4,24 +4,15 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ADD</title>
 </head>
 <body>
-    <form action="POST">
-
-        <label name="tile">Note Title:</label><br>
-        <input type="text" id="title" ><br>
-        <label name="description">Description:</label><br>
-        <input type="text" id="description" ><br>
-         <input type="submit" value="Add">
+    <form action="connection.php" method="POST">
+        <label for="title">Note Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description"><br>
+        <input type="submit" value="Add">
     </form>
 </body>
 </html>
-
-
-
-
-
-
-
-<?php include 'controller.php';?>
