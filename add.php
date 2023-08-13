@@ -23,5 +23,5 @@
 
 
 
-<?php include 'connection.php';?>
+
 <?php include 'controller.php';?>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="tablestyle.css">
+  <link rel="stylesheet" href="tablestyle.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -25,11 +25,11 @@
                 <td><?php echo $rows['date'];?></td>
     <td><button>DELETE</button>
     <button onclick="window.location.href = 'add.php';">ADD</button>
-    <button onclick="window.location.href = 'add.php';">UBDATE</button>
+    <button onclick="window.location.href = 'update.php';">UPDATE</button>
   </tr>
 </table></section>
 </body>
 </html>
 
-<?php include 'connection.php';?>
+
 <?php include 'controller.php';?>
