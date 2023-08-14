@@ -19,10 +19,10 @@
                     ROW OF EVERY COLUMN -->
                    
 
-                <td><?php echo "$row";?></td>
-                <td><?php echo "$rows";?></td>
-                <td><?php echo "$rows";?></td>
-                <td><?php echo "$rows";?></td>
+                <td><?php echo "$row1";?></td>
+                <td><?php echo "$rows2";?></td>
+                <td><?php echo "$rows3";?></td>
+                <td><?php echo "$rows4";?></td>
     <td><button>DELETE</button>
     <button onclick="window.location.href = 'add.php';">ADD</button>
     <button onclick="window.location.href = 'update.php';">UPDATE</button>
