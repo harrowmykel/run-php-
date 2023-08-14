@@ -14,15 +14,18 @@
     <th>Date-created</th>
     <th>Action </th>
   </tr>
-  <tr>
-                <!-- FETCHING DATA FROM EACH
-                    ROW OF EVERY COLUMN -->
-                   
-
-                <td><?php echo "$row1";?></td>
-                <td><?php echo "$rows2";?></td>
-                <td><?php echo "$rows3";?></td>
-                <td><?php echo "$rows4";?></td>
+  
+  <?php
+  $sqlquery1[] = "SELECT id,title,description,date FROM todos";
+    $result=$conn->query($sqlquery1);
+    if($result->num_rows >0){
+        while($row=$result->fetch_assoc()){
+             echo "<tr><td>" . $row["id"]. "</td><td>" . $row["title"] . "</td><td>"
+. $row["description"]. "</td><td>".$row["date"]."</td></tr>";
+  }
+    }else{echo"No DATA FOund in database";}
+$conn->close();
+  ?>
     <td><button>DELETE</button>
     <button onclick="window.location.href = 'add.php';">ADD</button>
     <button onclick="window.location.href = 'update.php';">UPDATE</button>

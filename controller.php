@@ -32,13 +32,5 @@ $connection = null;
 
 //////////////////////////////////////////////////////
 
-// collect all data from database
-    $sqlquery1[] = "SELECT id,title,description,date FROM todos";
-    $result=$conn->query($sqlquery1);
-    if($result->num_rows >0){
-        while($row=$result->fetch_assoc()){
-             echo $row["id"].$row["title"].$row["description"].$row["date"];
-        }
-    }else{echo"No DATA FOund in database";}
-$conn->close();
+
 ?>
