@@ -1,44 +1,44 @@
 <?php include 'connection.php';
 
 
-// Retrieve and sanitize form data
-$title = mysqli_real_escape_string($connection, $_POST['title']);
-$description = mysqli_real_escape_string($connection, $_POST['description']);
-
-// Construct the SQL query
-$sqlquery = "INSERT INTO todos (id,title,description,date) VALUES ('','$title', '$description','$date')";
-
-// Execute the query
-$result = mysqli_query($connection, $sqlquery);
-
-// Check if the query was successful
-if ($result) {
+  // Retrieve and sanitize form data
+  
+  try{
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $date=date("Y/m/d");
+    $id='';
+    // Prepare the SQL query
+    
+    $query = $connection->prepare("INSERT INTO todos (id,title,description,date) VALUES(?,?, ?,?)");
+  
+    // Bind the values to the prepared statement
+    $query->bindParam(1, $id);
+    $query->bindParam(2, $title);
+    $query->bindParam(3, $description);
+    $query->bindParam(4, $date);
+  
+    // Execute the query
+    $query->execute();
+  
+    // Check if the query was successful
     echo "Data inserted successfully";
-} else {
-    echo "Error: " . mysqli_error($connection);
-}
+  } catch (PDOException $e) {
+    // Display any errors that occurred
+    echo "Error: " . $e->getMessage();
+  }
+// Close the database connection (optional, as PDO automatically closes it)
+$connection = null;
 
-// Close the database connection
-mysqli_close($connection);
-
-
-
+//////////////////////////////////////////////////////
 
 // collect all data from database
-    $sqlquery1 = " SELECT * FROM todos";
-    //take the Rows Values
-    $rows="SELECT id, title, description, date from todos";
-    // collect value of input field
-    if (empty($sqlquery1)) {
-        echo "Data is empty";
-    } else {
-        echo "Data is full";
-         
-        if ($conn->query($sqlquery1) === TRUE) {
-            echo "Succefully";
-        } else {
-            echo "Not Sucessfully";
+    $sqlquery1[] = "SELECT id,title,description,date FROM todos";
+    $result=$conn->query($sqlquery1);
+    if($result->num_rows >0){
+        while($row=$result->fetch_assoc()){
+             echo $row["id"].$row["title"].$row["description"].$row["date"];
         }
-    }
-
+    }else{echo"No DATA FOund in database";}
+$conn->close();
 ?>

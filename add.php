@@ -7,7 +7,7 @@
     <title>ADD</title>
 </head>
 <body>
-    <form action="connection.php" method="POST">
+    <form action="controller.php" method="POST">
         <label for="title">Note Title:</label><br>
         <input type="text" id="title" name="title"><br>
         <label for="description">Description:</label><br>
